@@ -14,8 +14,8 @@ import (
 func main() {
 	const filename = "dummy.parquet"
 	const numrecords = 100
-	createDummyParquet(numrecords, filename)
-	readDummyParquet(filename)
+	CreateDummyParquet(numrecords, filename)
+	ReadDummyParquet(filename)
 }
 
 type Order struct {
@@ -27,7 +27,7 @@ type Order struct {
 	OrderTotal float64 `parquet:"name='OrderTotal', type=DOUBLE"`
 }
 
-func createDummyParquet(numRecords int, filename string) {
+func CreateDummyParquet(numRecords int, filename string) {
 	var err error
 	fw, err := ParquetFile.NewLocalFileWriter(filename)
 	defer fw.Close()
@@ -65,7 +65,7 @@ func createDummyParquet(numRecords int, filename string) {
 
 }
 
-func readDummyParquet(filename string) {
+func ReadDummyParquet(filename string) {
 	fr, err := ParquetFile.NewLocalFileReader(filename)
 	defer fr.Close()
 	if err != nil {
