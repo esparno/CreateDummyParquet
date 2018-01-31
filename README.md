@@ -1,2 +1,2 @@
 # CreateDummyParquet
-creates a dummy parquet file
+The purpose of this project is to create a dummy parquet file
